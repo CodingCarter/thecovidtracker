@@ -1,5 +1,7 @@
 <template>
   <Layout>
-    Country
+    <slot />
   </Layout>
 </template>
+
+<style lang="scss"></style>

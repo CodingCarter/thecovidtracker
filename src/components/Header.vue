@@ -5,7 +5,8 @@
     <nav>
       <g-link to="/">Home</g-link>
       <g-link to="/world/">Live World Data</g-link>
-      <g-link to="/states/il/">Illinois</g-link>
+      <g-link to="/united-states/il/">Illinois</g-link>
+      <g-link to="/united-states/">United States of America</g-link>
     </nav>
   </header>
 </template>
@@ -31,6 +32,10 @@ header {
       text-decoration: none;
       color: inherit;
       padding: 1rem 1.25rem;
+
+      &.active--exact {
+        color: #ee6352;
+      }
     }
   }
 }

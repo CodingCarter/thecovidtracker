@@ -1,7 +1,11 @@
 <template>
   <div class="layout">
     <Header />
-    <slot />
+    <transition name="fade" appear>
+      <div>
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -24,6 +28,18 @@ export default {
 </script>
 
 <style lang="scss">
+.fade-enter-active {
+  transition: all 400ms;
+  transform: scale(1);
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+.fade-enter {
+  transform: scale(0.95) translateY(-5%);
+  opacity: 0;
+}
+
 html {
   font-family: "Open Sans", sans-serif;
   color: $txt-primary;

@@ -1,7 +1,7 @@
 const TO_NAME = 1;
 const TO_ABBREVIATED = 2;
 
-export function convertRegion(input, to) {
+export default function convertRegion(input, to) {
   var states = [
     ["Alabama", "AL"],
     ["Alaska", "AK"],

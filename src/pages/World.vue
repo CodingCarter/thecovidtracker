@@ -3,27 +3,15 @@
     <div class="world-page">
       <main>
         <figure>
-          <p
-            v-html="
-              worldNow ? numberWithCommas(worldNow.TotalConfirmed) : '------'
-            "
-          />
+          <p v-html="worldNow ? formatNumber(worldNow.TotalConfirmed) : '-'" />
           <figcaption>cases</figcaption>
         </figure>
         <figure>
-          <p
-            v-html="
-              worldNow ? numberWithCommas(worldNow.TotalDeaths) : '------'
-            "
-          />
+          <p v-html="worldNow ? formatNumber(worldNow.TotalDeaths) : '-'" />
           <figcaption>deaths</figcaption>
         </figure>
         <figure>
-          <p
-            v-html="
-              worldNow ? numberWithCommas(worldNow.TotalRecovered) : '------'
-            "
-          />
+          <p v-html="worldNow ? formatNumber(worldNow.TotalRecovered) : '-'" />
           <figcaption>recovered</figcaption>
         </figure>
       </main>
@@ -33,12 +21,6 @@
 
 <script>
 export default {
-  methods: {
-    numberWithCommas(x) {
-      if (x == null) return "no data";
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
-  },
   data() {
     return {
       worldNow: null,
