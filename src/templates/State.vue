@@ -52,6 +52,12 @@
           {{ formatLastUpdatedDate(stateDaily.lastUpdateEt) }} EST
         </p>
       </aside>
+      <StatChart
+        :labels="stateHistory.map((el) => formatDate(el.lastUpdateEt))"
+        :data="stateHistory.map((el) => el.positive)"
+        title="Cumulative Cases"
+        color="green"
+      />
     </div>
     <main v-else>
       <h1>Loading data...thank you for your patience :)</h1>
@@ -61,6 +67,7 @@
 
 <script>
 import StatsCard from "~/components/StatsCard.vue";
+import StatChart from "~/components/StatChart.vue";
 
 export default {
   data() {
@@ -72,6 +79,7 @@ export default {
   },
   components: {
     StatsCard,
+    StatChart,
   },
   async mounted() {
     let stateMeta;
@@ -102,6 +110,8 @@ export default {
           this.$route.params.state
         }/daily.json`
       )).json();
+
+      stateHistory = stateHistory.reverse();
 
       if (!this.$store.states) this.$store.states = {};
 

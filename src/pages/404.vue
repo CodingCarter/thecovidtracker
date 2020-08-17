@@ -14,7 +14,7 @@ export default {
     };
   },
   mounted() {
-    if (window.location.pathname.includes("/states/")) this.isReloading = true;
+    setTimeout(location.reload(), 7500);
   },
 };
 </script>

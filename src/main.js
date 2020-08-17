@@ -24,6 +24,11 @@ export default function(Vue, { appOptions, head, isClient }) {
         const date = moment(dateStr);
         return `${date.format("dddd, MMMM DD")} at ${date.format("h:mm a")}`;
       },
+      formatDate: (dateStr) => {
+        const date = moment(dateStr);
+
+        return date.format("MMMM D");
+      },
       formatNumber(num) {
         if (num == null) return "no data";
         if (num >= 1000000) {
